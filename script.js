@@ -5,7 +5,15 @@ console.log(json['post_img'])
 console.log(json['user_pic'])
 console.log(json['user'])
 console.log(json['likes'])
-//document.querySelector('#txt').innerHTML = text
+console.log(json['description'])
+
+uri = json['description']
+//JSON.stringify(json['description']).replace('+', ' ')
+let encoded = encodeURI(uri);
+let decoded = decodeURI(encoded);
+console.log(typeof(decoded))
+decoded = decoded.replaceAll("+", " ");
+document.querySelector('#txt').innerHTML = decoded
 document.querySelector('#post_img').src = `http://api.scraperapi.com/?api_key=010e6bdc516d1ce035d6eeb741d5ac45&url=${json['post_img']}`
 document.querySelector('#user_pic1').src = `http://api.scraperapi.com/?api_key=010e6bdc516d1ce035d6eeb741d5ac45&url=${json['user_pic']}`
 document.querySelector('#user_pic2').src = `http://api.scraperapi.com/?api_key=010e6bdc516d1ce035d6eeb741d5ac45&url=${json['user_pic']}`
